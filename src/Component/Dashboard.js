@@ -2,11 +2,16 @@ import React, { useState } from 'react'
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link, Outlet } from 'react-router-dom';
 import AddAccount from './AddAccount';
+import { isAuthenticated } from './helper/auth';
 
 
 const Dashboard = () => {
     const [drop, setDrop] = useState(true)
     const [profile, setProfile] = useState(true)
+
+
+    const {user, token} = isAuthenticated();
+
     return (
         <>
             <nav>
@@ -77,7 +82,7 @@ const Dashboard = () => {
                             </ul>
                             <div>
                                 <button onClick={() => setProfile(!profile)} className='flex gap-1 items-center justify-center hover:text-blue-600 hover:bg-white p-2 relative' >
-                                    Kr80
+                                    {user.PersonalDetails.loginId}
                                     <IoMdArrowDropdown className='text-2xl' />
                                 </button>
                                 <div className={`bg-[#374151] p-2 absolute font-semibold text-sm right-0 flex flex-col gap-2 ${profile ? "hidden" : "null"}`}  >
