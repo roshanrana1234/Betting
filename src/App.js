@@ -15,6 +15,7 @@ import MarketAnalysis from './Component/MarketAnalysis'
 import ProfitAndLoss from './Component/ProfitAndLoss'
 import SettlementList from './Component/SettlementList'
 import VirtualCasino from './Component/VirtualCasino'
+import './App.css'
 
 const App = () => {
   return (
