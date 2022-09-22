@@ -121,7 +121,7 @@ const Login = () => {
               className="text-white bg-blue-500 w-full p-3 rounded-md hover:bg-blue-700 border-black"
             >
               Login
-              <FontAwesomeIcon icon={faSignInAlt} style={{marginLeft:'5px'}}/>
+              <FontAwesomeIcon icon={faSignInAlt} style={{ marginLeft: '5px' }} />
             </button>
             {performRedirect()}
           </div>
