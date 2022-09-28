@@ -16,6 +16,9 @@ import ProfitAndLoss from './Component/ProfitAndLoss'
 import SettlementList from './Component/SettlementList'
 import VirtualCasino from './Component/VirtualCasino'
 import './App.css'
+import CurrentBets from './Component/CurrentBets'
+import AccountStatment from './Component/AccountStatment'
+import CasinoReportResult from './Component/CasinoReportResult'
 
 const App = () => {
   return (
@@ -30,9 +33,12 @@ const App = () => {
           <Route exact path='livecasino' element={<LiveCasino />} />
           <Route exact path='virtualcasino' element={<VirtualCasino />} />
           <Route exact path='addaccount' element={<AddAccount />} />
+          <Route exact path='accountstatment' element={<AccountStatment />} />
           <Route exact path='settlementlist' element={<SettlementList />} />
+          <Route exact path='currentbet' element={<CurrentBets />} />
           <Route exact path='profitandloss' element={<ProfitAndLoss />} />
           <Route exact path='casinoprofitandloss' element={<CasinoProfitAndLoss />} />
+          <Route exact path='casinoreportresult' element={<CasinoReportResult />} />
           <Route exact path='casinodetail' element={<CasinoDeatil />} />
           <Route exact path='bethistory' element={<BetHistory />} />
           <Route exact path='lenadena' element={<LenaDena />} />

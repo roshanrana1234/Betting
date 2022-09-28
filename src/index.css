@@ -3,3 +3,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .active-tabs {
+    @apply bg-[#3B77B5]  border text-white;
+  }
+}
+@layer utilities {
+  .content {
+    @apply hidden;
+  }
+}
+
+@layer utilities {
+  .active-content {
+    @apply block;
+  }
+}
+
+@layer utilities {
+  .active {
+    @apply text-white bg-green-400;
+  }
+}

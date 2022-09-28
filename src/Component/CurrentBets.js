@@ -1,6 +1,6 @@
 import React from 'react'
 
-const BetHistory = () => {
+const CurrentBets = () => {
     return (
         <>
             <div className='text-gray-800 p-5' >
@@ -9,7 +9,7 @@ const BetHistory = () => {
                     Bet History
                 </div>
 
-                <div className='grid grid-cols-1 lg:grid-cols-3 gap-5' >
+                <div className='grid grid-cols-1 lg:grid-cols-2 gap-5' >
 
                     <div className='flex-col' >
                         <div className='flex flex-col gap-3' >
@@ -54,21 +54,13 @@ const BetHistory = () => {
                             </select>
                         </div>
                     </div>
-
-                    <div>
-                        <div className='flex flex-col gap-3 ' >
-                            <label htmlFor=""> Search By Client Name</label>
-                            <input className='rounded-lg p-2 border shadow-lg border-gray-600' type="text" />
-                        </div>
-                    </div>
-
                 </div>
-                <div>
-                    <input type="submit" className='text-white bg-gray-800 w-full rounded text-center my-5 p-2' />
-                </div>
+
+                <button className='text-white bg-gray-700 p-2 px-5 rounded mt-3' >submit</button>
+
             </div>
         </>
     )
 }
 
-export default BetHistory
+export default CurrentBets

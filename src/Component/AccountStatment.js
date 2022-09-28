@@ -1,12 +1,23 @@
 import React from 'react'
 
-const SettlementList = () => {
+const AccountStatment = () => {
     return (
         <>
             <div className='text-gray-800 p-5' >
-                <div className='text-gray-800 text-2xl' >Settlement List</div>
+                <div className='text-gray-800 text-2xl' >Account Statement</div>
 
-                <div className='grid grid-cols-1 lg:grid-cols-3 p-5 gap-5' >
+                <div className='grid grid-cols-1 lg:grid-cols-4 p-5 gap-5' >
+                    <div className='flex flex-col ' >
+                        <label htmlFor="">Game Name</label>
+                        <select
+                            className='p-2 border shadow-lg border-gray-600'
+                            name="" id="">
+                            <option value="">All</option>
+                            <option value="">Balance Report</option>
+                            <option value="">Game Report</option>
+                        </select>
+
+                    </div>
                     <div className='flex flex-col ' >
                         <label htmlFor="">Search By Client Name</label>
                         <input className='p-2 border shadow-lg border-gray-600' type="text" />
@@ -30,4 +41,4 @@ const SettlementList = () => {
     )
 }
 
-export default SettlementList
+export default AccountStatment

@@ -176,26 +176,59 @@ const ListOfClient = () => {
                     >
                         <MdArrowCircleDown className={`text-white text-2xl font-bold ${open ? "rotate-[180deg]" : "null"} duration-300`} />
                     </div>
-
                 </div>
-                <div className={` h-40 bg-[#0088CC] grid grid-cols-3 text-white p-3 ${!open ? "hidden" : "block"}  linear duration-500`} >
-                    <div className='flex flex-col gap-3 text-sm font-sembold' >
-                        <div>
-                            Upper Level Credit Reference :
-                        </div>
-                        <div>
-                            Total Master Balance :
-                        </div>
-                        <div>
-                            Available Balance :
+
+                <div className={` h-40 bg-[#0088CC] grid lg:grid-cols-3 text-white p-3 ${!open ? "hidden" : "block"} gap-5 z-10 text-sm overflow-auto `} >
+
+                    <div className='text-white' >
+                        <div className='flex flex-col gap-3' >
+                            <div className='flex justify-between' >
+                                <div>Upper Level Credit Reference:</div>
+                                <div>199890</div>
+                            </div>
+                            <div className='flex justify-between' >
+                                <div>Total Master Balance:</div>
+                                <div>19980.7</div>
+                            </div>
+                            <div className='flex justify-between' >
+                                <div>Avilable Balance with Profit/Loss</div>
+                                <div>9890</div>
+                            </div>
                         </div>
                     </div>
 
-                    <div>
-                        two
+                    <div className='text-white' >
+                        <div className='flex flex-col gap-3' >
+                            <div className='flex justify-between' >
+                                <div>Upper Level Credit Reference:</div>
+                                <div>199890</div>
+                            </div>
+                            <div className='flex justify-between' >
+                                <div>Total Master Balance:</div>
+                                <div>19980.7</div>
+                            </div>
+                            <div className='flex justify-between' >
+                                <div>Avilable Balance with Profit/Loss</div>
+                                <div>9890</div>
+                            </div>
+                        </div>
                     </div>
-                    <div>
-                        three
+
+                    <div className='text-white' >
+                        <div className='flex flex-col gap-3' >
+                            <div className='flex justify-between' >
+                                <div>Upper Level Credit Reference:</div>
+                                <div>199890</div>
+                            </div>
+                            <div className='flex justify-between' >
+                                <div>Total Master Balance:</div>
+                                <div>19980.7</div>
+                            </div>
+                            <div className='flex justify-between' >
+                                <div>Avilable Balance with Profit/Loss</div>
+                                <div>9890</div>
+                            </div>
+                        </div>
                     </div>
 
                 </div>

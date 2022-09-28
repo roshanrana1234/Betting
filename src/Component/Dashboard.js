@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { IoMdArrowDropdown } from "react-icons/io";
 import { Link, Outlet } from 'react-router-dom';
 import AddAccount from './AddAccount';
@@ -8,9 +8,21 @@ import { isAuthenticated } from './helper/auth';
 const Dashboard = () => {
     const [drop, setDrop] = useState(true)
     const [profile, setProfile] = useState(true)
+    const { user, token } = isAuthenticated();
+    const dropRef = useRef()
+    const profileRef = useRef()
 
-
-    const {user, token} = isAuthenticated();
+    useEffect(() => {
+        const handler = (e) => {
+            if (!dropRef.current.contains(e.target)) {
+                setDrop(true)
+            }
+            if (!profileRef.current.contains(e.target)) {
+                setProfile(true)
+            }
+        }
+        document.addEventListener("mousedown", handler)
+    }, []);
 
     return (
         <>
@@ -22,7 +34,7 @@ const Dashboard = () => {
                         <div
                             className='p-3'
                         >Welcom Bet Started</div>
-                        <div className='  flex justify-between p-2' >
+                        <div className='  flex justify-between p-2 ' >
                             <ul className='flex gap-4  items-center' >
                                 <li className='cursor-pointer hover:bg-blue-600 p-1 rounded-sm' >
                                     <Link to="listofclient" >
@@ -44,20 +56,23 @@ const Dashboard = () => {
                                         Virtual Casino
                                     </Link>
                                 </li>
-                                <div>
-                                    <li onClick={() => setDrop(!drop)} className={`cursor-pointer hover:bg-blue-600 p-1 rounded-sm  relative`} >
-                                        <button className='flex gap-1 items-center justify-center' >
+                                <div ref={dropRef} >
+                                    <li className={`cursor-pointer hover:bg-blue-600 p-1 rounded-sm  relative`} >
+                                        <button onClick={() => setDrop(!drop)} className='flex gap-1 items-center justify-center' >
                                             Report
                                             <IoMdArrowDropdown className={`text-2xl ${!drop ? "rotate-[180deg]" : "null"} `} />
                                         </button>
                                     </li>
                                     <div className={`${drop ? "hidden" : "null"} absolute z-10 `} >
                                         <ul className='bg-[#374151] p-4 flex flex-col ' >
-                                            <Link to="/" >
+                                            <Link to="/dashboard/accountstatment" >
                                                 <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Account Statment</li>
                                             </Link>
                                             <Link to="/dashboard/settlementlist" >
                                                 <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Settlement List</li>
+                                            </Link>
+                                            <Link to="/dashboard/currentbet" >
+                                                <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Current Bet</li>
                                             </Link>
                                             <Link to='/dashboard/profitandloss' >
                                                 <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Profit & Loss</li>
@@ -67,6 +82,9 @@ const Dashboard = () => {
                                             </Link>
                                             <Link to="/dashboard/casinodetail" >
                                                 <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Casino Detail</li>
+                                            </Link>
+                                            <Link to="/dashboard/casinoreportresult" >
+                                                <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Casino Report Result</li>
                                             </Link>
                                             <Link to="/dashboard/bethistory" >
                                                 <li className="hover:bg-[#fff] p-2 hover:text-[#374151]" >Bet History</li>
@@ -80,12 +98,16 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </ul>
-                            <div>
-                                <button onClick={() => setProfile(!profile)} className='flex gap-1 items-center justify-center hover:text-blue-600 hover:bg-white p-2 relative' >
+                            <div
+                                className={`cursor-pointer  p-1 rounded-sm  relative`}
+                                ref={profileRef} >
+                                <button
+                                    onClick={() => setProfile(!profile)}
+                                    className='flex gap-1 items-center justify-center hover:text-blue-600 hover:bg-white p-1 relative' >
                                     {user.PersonalDetails.loginId}
                                     <IoMdArrowDropdown className='text-2xl' />
                                 </button>
-                                <div className={`bg-[#374151] p-2 absolute font-semibold text-sm right-0 flex flex-col gap-2 ${profile ? "hidden" : "null"}`}  >
+                                <div className={`bg-[#374151] p-2 absolute font-semibold text-sm right-0 flex flex-col gap-2 ${profile ? "hidden" : "null"} top-full`}  >
                                     <Link to="/dashboard/changepassword" >
                                         <ul className='hover:bg-[#fff] hover:text-[#374151] p-2' >Change Password</ul>
                                     </Link>
