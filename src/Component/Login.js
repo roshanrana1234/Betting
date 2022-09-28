@@ -77,9 +77,9 @@ const Login = () => {
         return <Navigate to="/" />;
       }
     }
-    if (isAuthenticated()) {
-      return <Navigate to="/dashboard" />;
-    }
+    // if (isAuthenticated()) {
+    //   return <Navigate to="/dashboard" />;
+    // }
   };
 
   return (
